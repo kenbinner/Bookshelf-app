@@ -1,0 +1,11 @@
+#loginBox {
+    border-style: solid;
+    width: 400px;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.btn { 
+    width: 100px;
+}

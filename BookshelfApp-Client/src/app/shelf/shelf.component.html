@@ -1,0 +1,132 @@
+<h1>
+  {{customer.name}}'s Shelf
+</h1>
+<p style="float: right">
+  <a [routerLink]="['']">Logout</a>
+  <a (click)="addBookScreen = true">Add Book</a>
+</p>
+<hr>
+<div *ngIf="errorMessage == null && viewDetails == false && addBookScreen == false">
+  <!-- <div class="grid-list">
+    <ul *ngFor="let book of bookList">
+      <li class="book">{{book.title}}</li>
+    </ul>
+  </div> -->
+  <div class="grid-list">
+    <ul *ngFor="let book of bookList">
+      <a (click)="setSelectedBook(book)">
+        <li class="book">{{book.title}}</li>
+      </a>
+    </ul>
+  </div>
+</div>
+
+<!-- Book Details -->
+
+<div *ngIf="errorMessage == null && viewDetails == true">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="enlargedBook">
+        {{selectedBook.title}}
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <p>{{selectedBook.title}}</p>
+      <p>by {{selectedBook.author}}</p>
+      <p>ISBN: {{selectedBook.isbn}}</p>
+      <br>
+      <p>Status: {{selectedBook.status}}</p>
+      <p>Rating: {{selectedBook.rating}}</p>
+      <p>Comments: {{selectedBook.comments}}</p>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div style="justify-content: space-around">
+        <button class="btn btn-primary">Edit</button>
+        <button class="btn btn-danger" (click)="removeBook(selectedBook.bookId)">Delete</button>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" (click)="viewDetails = false">Back</button>
+</div>
+<div *ngIf="errorMessage != null">
+  errorMessage
+</div>
+
+<!--Add Book-->
+
+<!--
+
+<div *ngIf="addBookScreen == true">
+  <form class="form" [formGroup]="addBookForm" (ngSubmit)="addBook()">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="enlargedBook">
+          <!-- <div class="form-group">
+            <label for="image">Add Image Here</label>
+            <input class="form-control" type="file" formControlName="image" id="image" (change)="onfilechange($event)" />
+          </div> 
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input class="form-control" formControlName="title" placeholder="Title" id="title" />
+          <div *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched">
+            <div class="field-error-message" *ngIf="loginForm.controls.title.hasError('required')">
+              Title is Required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input class="form-control" formControlName="author" placeholder="Author" id="author" />
+        </div>
+        <div class="form-group">
+          <label for="isbn">ISBN</label>
+          <input class="form-control" formControlName="isbn" placeholder="ISBN" id="isbn" />
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select class="form-control" formControlName="status" id="status">
+            <option>Reading</option>
+            <option>Complete</option>
+            <option>On Hold</option>
+            <option>Dropped</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="rating">Rating</label>
+          <select class="form-control" formControlName="rating" id="rating">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="comments">Comments</label>
+          <textArea [(ngModel)]="comments" rows="5" cols="60">
+            </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div style="justify-content: space-around">
+            <button class="col-md-4 offset-md-1 btn btn-success" [disabled]="!addBookForm.valid">
+                Save
+              </button>
+          <button class="btn btn-danger" (click)="removeBook(selectedBook.bookId)">Delete</button>
+        </div>
+      </div>
+      </div>
+    <button class="btn btn-primary" (click)="addBookScreen = false">Back</button>
+    </form>
+</div>
+<div *ngIf="errorMessage != null">
+  errorMessage
+</div>
+-->

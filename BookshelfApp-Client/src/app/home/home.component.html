@@ -1,0 +1,51 @@
+<h1>
+  Welcome to your
+</h1>
+<h1>Bookshelf</h1>
+<hr>
+<div id="loginBox">
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input class="form-control" formControlName="email" placeholder="Email" id="emailId" />
+      <div *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched">
+
+        <div class="field-error-message" *ngIf="loginForm.controls.email.hasError('required')">
+          Email is Mandatory
+        </div>
+        <div class="field-error-message" *ngIf="loginForm.controls.email.dirty && loginForm.controls.email.hasError('emailPatternError')">
+          Email pattern is invalid
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="Password">Password</label>
+      <input type="password" class="form-control" formControlName="password" placeholder="Password" id="password" />
+      <div *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched">
+
+        <div class="field-error-message" *ngIf="loginForm.controls.password.hasError('required')">
+          Password is Mandatory
+        </div>
+        <div class="field-error-message" *ngIf="loginForm.controls.password.dirty && loginForm.controls.password.hasError('passwordPatternError')">
+          Password pattern is invalid
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row" style="display: flex; justify-content: space-between">
+
+      <button class="col-md-4 offset-md-1 btn btn-success" [disabled]="!loginForm.valid">
+        Login
+      </button>
+
+      <button class="col-md-4 offset-md-2 btn btn-primary" type="reset" (click)="errorMessage=null" [disabled]="loginForm.pristine">
+        Reset
+      </button>
+
+    </div>
+  </form>
+  <h5 *ngIf="tryToLogin" class="text-center text-info"> Logging...Please Wait!!</h5>
+  <h5 class="error-message text-justify">{{errorMessage}}</h5>
+</div>
