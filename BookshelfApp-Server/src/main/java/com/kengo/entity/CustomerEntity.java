@@ -14,7 +14,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.kengo.model.Book;
 
 @Entity
 @Table(name="CUSTOMERS")
@@ -22,8 +21,9 @@ public class CustomerEntity {
 	
 	@Id
 	@Column(name  = "CUSTOMERID")
-	@SequenceGenerator(name="pkgen",  sequenceName="customer_seq")
-	@GeneratedValue(generator="pkgen",strategy=GenerationType.SEQUENCE)
+//	@SequenceGenerator(name="pkgen",  sequenceName="customer_seq")
+//	@GeneratedValue(generator="pkgen",strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer customerId;
 	
 	@Column(name = "NAME")

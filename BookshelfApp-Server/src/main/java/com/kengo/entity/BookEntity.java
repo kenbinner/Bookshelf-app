@@ -15,8 +15,9 @@ public class BookEntity {
 	
 	@Id
 	@Column(name  = "BOOKID")
-	@SequenceGenerator(name="pkgen",  sequenceName="book_seq")
-	@GeneratedValue(generator="pkgen",strategy=GenerationType.SEQUENCE)
+//	@SequenceGenerator(name="pkgen",  sequenceName="book_seq")
+//	@GeneratedValue(generator="pkgen",strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer bookId;
 	
 	@Column(name = "TITLE")
