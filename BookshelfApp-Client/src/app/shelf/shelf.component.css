@@ -34,7 +34,7 @@ li:hover {
 }
 
 .book, .enlargedBook {
-    border-style: solid;
+  border-style: solid;
     height: 200px;
     width: 120px;
     padding: 1em;
