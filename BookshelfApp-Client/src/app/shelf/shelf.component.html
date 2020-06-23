@@ -15,7 +15,7 @@
   <div class="grid-list">
     <ul *ngFor="let book of bookList">
       <a (click)="setSelectedBook(book)">
-        <li class="book">{{book.title}}</li>
+        <li class="book"><img [src]="'../../assets/covers/' + book.bookId + '.jpg'" [alt]="book.title"></li>
       </a>
     </ul>
   </div>
