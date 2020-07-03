@@ -1,48 +1,21 @@
-package com.kengo.entity;
+package com.kengo.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import java.io.File;
 
-@Entity
-@Table(name = "BOOKS")
-public class BookEntity {
+import org.springframework.web.multipart.MultipartFile;
+
+public class NewBook {
 	
-	@Id
-	@Column(name  = "BOOKID")
-	@SequenceGenerator(name="pkgen",  sequenceName="book_seq", allocationSize = 1)
-	@GeneratedValue(generator="pkgen",strategy=GenerationType.SEQUENCE)
-//	@GeneratedValue(strategy=GenerationType.AUTO, generator="pkgen")
 	private Integer bookId;
-	
-	@Column(name = "TITLE")
 	private String title;
-	
-	@Column(name = "AUTHOR")
 	private String author;
-	
-	@Column(name = "STATUS")
 	private String status;
-	
-	@Column(name = "COMMENTS")
 	private String comments;
-	
-	@Column(name = "RATING")
 	private Integer rating;
-	
-	@Column(name = "ISBN")
 	private String isbn;
-	
-	@Column(name = "CUSTOMER")
 	private Integer customer;
+	private MultipartFile image;
 	
-	@Column(name = "IMAGE")
-	private Byte[] image;
 	
 	public Integer getCustomer() {
 		return customer;
@@ -92,13 +65,11 @@ public class BookEntity {
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
-	public Byte[] getImage() {
+	public MultipartFile getImage() {
 		return image;
 	}
-	public void setImage(Byte[] image) {
+	public void setImage(MultipartFile image) {
 		this.image = image;
 	}
-	
-	
 
 }

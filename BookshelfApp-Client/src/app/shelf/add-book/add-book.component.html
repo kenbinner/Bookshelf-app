@@ -1,3 +1,78 @@
-<p>
-  add-book works!
+<h1>
+  {{customer.name}}'s Shelf
+</h1>
+<p style="float: right">
+  <a [routerLink]="['']">Logout</a>
+  <a [routerLink]="['add-book']">Add Book</a>
 </p>
+<hr>
+<div>
+  <form class="form" [formGroup]="addBookForm" (ngSubmit)="addBook()">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="enlargedBook">
+          <div class="form-group">
+            <label for="image">Add Image Here</label>
+            <input class="form-control" type="file" formControlName="image" id="image"
+              (change)="onFileChanged($event)" />
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input class="form-control" formControlName="title" placeholder="Title" id="title" />
+          <!-- <div *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched">
+            <div class="field-error-message" *ngIf="loginForm.controls.title.hasError('required')">
+              Title is Required
+            </div>
+          </div> -->
+        </div>
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input class="form-control" formControlName="author" placeholder="Author" id="author" />
+        </div>
+        <div class="form-group">
+          <label for="isbn">ISBN</label>
+          <input class="form-control" formControlName="isbn" placeholder="ISBN" id="isbn" />
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select class="form-control" formControlName="status" id="status">
+            <option>Reading</option>
+            <option>Complete</option>
+            <option>On Hold</option>
+            <option>Dropped</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="rating">Rating</label>
+          <select class="form-control" formControlName="rating" id="rating">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="comments">Comments</label>
+          <textarea class="form-control rounded-0" id="comments" rows="3" formControlName="comments"></textarea>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div style="justify-content: space-around">
+            <button class="col-md-4 offset-md-1 btn btn-success" type="submit" [disabled]="!addBookForm.valid">
+                Save
+              </button>
+        </div>
+      </div>
+    </div>
+    </form>
+</div>
+  {{successMessage}}
+  {{errorMessage}}
+<button [routerLink]="['/shelf']">Back</button>

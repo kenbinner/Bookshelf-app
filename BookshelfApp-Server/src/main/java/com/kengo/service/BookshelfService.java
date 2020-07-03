@@ -21,8 +21,6 @@ public interface BookshelfService {
 	
 	public Byte[] saveImageFile(MultipartFile file) throws Exception;
 	
-	public void retrieveImageFile(Byte[] imageData) throws Exception;
-	
 	public Customer authenticateCustomer(String emailId, String password) throws Exception;
 	
 }

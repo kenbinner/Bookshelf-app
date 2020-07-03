@@ -9,3 +9,14 @@
 .btn { 
     width: 100px;
 }
+
+.title {
+  margin: 10%;
+  margin-bottom: 0;
+  position: relative;
+  left: 80px;
+}
+
+body{
+  background-image: url();
+}

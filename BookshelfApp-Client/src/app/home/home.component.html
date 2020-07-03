@@ -1,7 +1,9 @@
-<h1>
-  Welcome to your
-</h1>
-<h1>Bookshelf</h1>
+<div class="title">
+  <h1>
+    Welcome to your
+  </h1>
+  <h1>Bookshelf</h1>
+</div>
 <hr>
 <div id="loginBox">
   <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
@@ -36,7 +38,7 @@
     <br>
     <div class="row" style="display: flex; justify-content: space-between">
 
-      <button class="col-md-4 offset-md-1 btn btn-success" [disabled]="!loginForm.valid">
+      <button class="col-md-4 offset-md-1 btn btn-success">
         Login
       </button>
 

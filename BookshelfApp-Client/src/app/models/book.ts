@@ -7,4 +7,5 @@ export class Book{
     rating: number;
     isbn: string;
     customer: number;
+    image: File;
 }

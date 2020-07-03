@@ -49,7 +49,6 @@ public class BookshelfAppServer{// implements CommandLineRunner{
 				System.out.println(book.getRating());
 				System.out.println(book.getComments());
 				System.out.println(book.getIsbn());
-				bookshelfService.retrieveImageFile(book.getImage());
 				System.out.println("-------------");
 			}
 			System.out.println(bookList.get(10).getImage().length);
@@ -69,7 +68,7 @@ public class BookshelfAppServer{// implements CommandLineRunner{
 			book.setStatus("complete");
 			book.setTitle("12 Rules for Life: An Antidote to Chaos");
 			
-			File file = new File("C:\\Users\\kengo.binner\\Desktop\\other\\BookshelfApp\\BookshelfApp-Server\\src\\main\\resources\\12RulesCover.jpg");
+			File file = new File("C:\\Users\\kengo\\Documents\\Projects\\Full Stack Projects\\BookshelfApp\\BookshelfApp-Server\\src\\main\\resources\\12RulesCover.jpg");
 			FileInputStream input = new FileInputStream(file);
 			MultipartFile multifile= new MockMultipartFile("file", input);
 			book.setImage(bookshelfService.saveImageFile(multifile));
@@ -108,4 +107,5 @@ public class BookshelfAppServer{// implements CommandLineRunner{
 		}
 	}
 	*/
+	
 }

@@ -21,9 +21,9 @@ public class CustomerEntity {
 	
 	@Id
 	@Column(name  = "CUSTOMERID")
-//	@SequenceGenerator(name="pkgen",  sequenceName="customer_seq")
-//	@GeneratedValue(generator="pkgen",strategy=GenerationType.SEQUENCE)
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@SequenceGenerator(name="pkgeny",  sequenceName="customer_seq", allocationSize = 1)
+	@GeneratedValue(generator="pkgeny",strategy=GenerationType.SEQUENCE)
+//	@GeneratedValue(strategy=GenerationType.AUTO, generator="pkgen")
 	private Integer customerId;
 	
 	@Column(name = "NAME")

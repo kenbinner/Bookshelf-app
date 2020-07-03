@@ -59,23 +59,6 @@ public class BookshelfServiceImpl implements BookshelfService{
 	}
 	
 	@Override
-	public void retrieveImageFile(Byte[] imageData) throws Exception {
-		if(!(imageData==null)){
-			byte[] imageBytes = new byte[imageData.length];
-			int i = 0;
-			for(Byte b : imageData){
-				imageBytes[i++] = b;
-			}
-			ByteArrayInputStream bis = new ByteArrayInputStream(imageBytes);
-			BufferedImage bImage = ImageIO.read(bis);
-			ImageIO.write(bImage, "jpg", new File("output.jpg") );
-			System.out.println("Successfully retrieved image");
-		}else
-			System.out.println("no image");
-		
-	}
-	
-	@Override
 	public Customer authenticateCustomer(String emailId, String password) throws Exception {
 		Customer customer = bookshelfDAO.authenticateCustomer(emailId, password);
 		if(customer == null){

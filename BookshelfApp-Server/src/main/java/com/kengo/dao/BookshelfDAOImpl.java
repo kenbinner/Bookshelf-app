@@ -1,8 +1,12 @@
 package com.kengo.dao;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
@@ -41,6 +45,7 @@ public class BookshelfDAOImpl implements BookshelfDAO{
 				book.setTitle(bookEntity.getTitle());
 				book.setBookId(bookEntity.getBookId());
 				book.setImage(bookEntity.getImage());
+				retrieveImageFile(bookEntity.getImage(), bookEntity.getBookId());
 				bookList.add(book);
 			}
 		}
@@ -81,6 +86,23 @@ public class BookshelfDAOImpl implements BookshelfDAO{
 		bookEntity.setTitle(book.getTitle());
 		bookEntity.setImage(book.getImage());
 		return bookEntity.getTitle();
+	}
+	
+	@Override
+	public void retrieveImageFile(Byte[] imageData, Integer bookId) throws Exception {
+		if(!(imageData==null)){
+			byte[] imageBytes = new byte[imageData.length];
+			int i = 0;
+			for(Byte b : imageData){
+				imageBytes[i++] = b;
+			}
+			ByteArrayInputStream bis = new ByteArrayInputStream(imageBytes);
+			BufferedImage bImage = ImageIO.read(bis);
+			ImageIO.write(bImage, "jpg", new File("C:\\Users\\kengo\\Documents\\Projects\\Full Stack Projects\\BookshelfApp\\BookshelfApp-Client\\src\\assets\\covers\\" + bookId +".jpg") );
+			System.out.println("Successfully retrieved image");
+		}else
+			System.out.println("no image");
+		
 	}
 
 	@Override

@@ -19,6 +19,8 @@ public interface BookshelfDAO {
 	
 	public String updateBook(Book book) throws Exception;
 	
+	public void retrieveImageFile(Byte[] imageData, Integer bookId) throws Exception;
+	
 	public Customer authenticateCustomer(String emailId, String password);
 	
 }
