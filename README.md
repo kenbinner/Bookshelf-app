@@ -1,7 +1,7 @@
 # MyBookshelf
 A web app where users can keep track of books they're reading with a virtual bookshelf. Front end is created using Angular. Back end is created using Springboot, Java 17 and MySql.
 
-Concept image:
+Concept image (concepts created in Adobe XD):
 ![alt image](https://raw.githubusercontent.com/kenbinner/BookshelfApp/master/Designs/Login.png)
 
 
