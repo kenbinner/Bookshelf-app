@@ -1,29 +1,24 @@
-DROP TABLE Books CASCADE CONSTRAINTS;
-DROP TABLE Customers CASCADE CONSTRAINTS;
-DROP SEQUENCE book_seq;
-DROP SEQUENCE customer_seq;
-
-CREATE SEQUENCE book_seq START WITH 000013 INCREMENT BY 1;
-CREATE SEQUENCE customer_seq START WITH 003 INCREMENT BY 1;
+DROP TABLE Books;
+DROP TABLE Customers;
 
 CREATE TABLE Customers
 	(
-		customerId NUMBER(3) PRIMARY KEY,
-		name VARCHAR2(20) NOT NULL,
-		email VARCHAR2(20) NOT NULL,
-		password VARCHAR2(20) NOT NULL
+		customerId int(3) AUTO_INCREMENT PRIMARY KEY,
+		name VARCHAR(20) NOT NULL,
+		email VARCHAR(20) NOT NULL,
+		password VARCHAR(20) NOT NULL
 	);
 
 CREATE TABLE Books
 	(
-		bookId NUMBER(5) PRIMARY KEY,
-		title VARCHAR2(50) NOT NULL,
-		author VARCHAR2(50) NOT NULL,
-		status VARCHAR2(15) NOT NULL,
-		comments VARCHAR2(200),
-		rating NUMBER(1),
-		isbn VARCHAR2(20) UNIQUE,
-		customer NUMBER(3) REFERENCES Customers(customerId),
+		bookId int(5) AUTO_INCREMENT PRIMARY KEY,
+		title VARCHAR(50) NOT NULL,
+		author VARCHAR(50) NOT NULL,
+		status VARCHAR(15) NOT NULL,
+		comments VARCHAR(200),
+		rating int(1),
+		isbn VARCHAR(20) UNIQUE,
+		customer int(3) REFERENCES Customers(customerId),
 		image BLOB
 	);
 
@@ -54,9 +49,6 @@ INSERT INTO Books VALUES(11, 'The Girl Who Played Go', 'Shan Sa', 'on hold',
 'Mystifying... can be hard to follow sometimes',3, '0099444984',001 ,null);
 INSERT INTO Books VALUES(12, 'Life Story', 'Virginia Lee Burton', 'complete', 
 'One of my favourite childhood books',5, '0547203594',001 ,null);
-
-
-COMMIT;
 
 SELECT * FROM Customers;
 SELECT * FROM Books;
