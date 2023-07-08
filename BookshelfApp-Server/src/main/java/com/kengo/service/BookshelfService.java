@@ -1,4 +1,4 @@
-package com.kengo.api;
+package com.kengo.service;
 
 import java.util.List;
 
