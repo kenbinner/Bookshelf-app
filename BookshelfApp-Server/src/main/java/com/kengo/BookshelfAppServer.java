@@ -13,8 +13,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.kengo.controller.BookshelfController;
 import com.kengo.model.Book;
-import com.kengo.service.BookshelfService;
 
 @SpringBootApplication
 public class BookshelfAppServer{// implements CommandLineRunner{
@@ -23,7 +23,7 @@ public class BookshelfAppServer{// implements CommandLineRunner{
 	Environment environment;
 	
 	@Autowired
-	private BookshelfService bookshelfService;
+	private BookshelfController bookshelfService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(BookshelfAppServer.class, args);

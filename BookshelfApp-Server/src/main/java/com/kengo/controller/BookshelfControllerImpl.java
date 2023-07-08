@@ -1,4 +1,4 @@
-package com.kengo.service;
+package com.kengo.controller;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -16,7 +16,7 @@ import com.kengo.model.Book;
 import com.kengo.model.Customer;
 
 @Service(value = "bookshelfService")
-public class BookshelfServiceImpl implements BookshelfService{
+public class BookshelfControllerImpl implements BookshelfController{
 	
 	@Autowired
 	private BookshelfDAO bookshelfDAO;

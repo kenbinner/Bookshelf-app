@@ -1,4 +1,4 @@
-package com.kengo.service;
+package com.kengo.controller;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import com.kengo.model.Book;
 import com.kengo.model.Customer;
 
 @Service
-public interface BookshelfService {
+public interface BookshelfController {
 	
 	public List<Book> getBooks(Integer custId) throws Exception;
 	

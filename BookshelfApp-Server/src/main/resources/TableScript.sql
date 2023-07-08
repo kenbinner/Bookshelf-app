@@ -22,8 +22,8 @@ CREATE TABLE Books
 		image BLOB
 	);
 
-INSERT INTO Customers VALUES(1, 'Kengo', 'kengo@infosys.com','Kengo@123');
-INSERT INTO Customers VALUES(2, 'Naoki', 'naoki@infosys.com','Naoki@123');
+INSERT INTO Customers VALUES(1, 'Kengo', 'kengo@binner.org','Kengo@123');
+INSERT INTO Customers VALUES(2, 'Naoki', 'naoki@binner.org','Naoki@123');
 
 INSERT INTO Books VALUES(1, 'Bubishi', 'Patrick McCarthy', 'complete', 
 'A really insightful and mysterious text on the origins of karate',4, '9784805313848',001,null );
