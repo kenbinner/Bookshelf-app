@@ -11,9 +11,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.kengo.BookshelfAppServer;
 import com.kengo.entity.BookEntity;
 import com.kengo.entity.CustomerEntity;
 import com.kengo.model.Book;
@@ -25,6 +28,8 @@ public class BookshelfDAOImpl implements BookshelfDAO{
 	
 	@Autowired
 	private EntityManager entityManager;
+	
+	private static final Logger logger = LogManager.getLogger(BookshelfAppServer.class);
 
 	@Override
 	public List<Book> getBooks(Integer custId) throws Exception {
@@ -99,9 +104,9 @@ public class BookshelfDAOImpl implements BookshelfDAO{
 			ByteArrayInputStream bis = new ByteArrayInputStream(imageBytes);
 			BufferedImage bImage = ImageIO.read(bis);
 			ImageIO.write(bImage, "jpg", new File("C:\\Users\\kengo\\Documents\\Projects\\Full Stack Projects\\BookshelfApp\\BookshelfApp-Client\\src\\assets\\covers\\" + bookId +".jpg") );
-			System.out.println("Successfully retrieved image");
+			logger.debug("Successfully retrieved image");
 		}else
-			System.out.println("no image");
+			logger.warn("no image");
 		
 	}
 

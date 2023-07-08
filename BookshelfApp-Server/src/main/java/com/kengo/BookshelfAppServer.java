@@ -10,8 +10,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.Environment;
-import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.kengo.controller.BookshelfController;
 import com.kengo.model.Book;
@@ -22,10 +24,18 @@ public class BookshelfAppServer{// implements CommandLineRunner{
 	@Autowired
 	Environment environment;
 	
-	@Autowired
-	private BookshelfController bookshelfService;
+	//@Autowired
+	//private BookshelfController bookshelfService;
+	
+	private static final Logger logger = LogManager.getLogger(BookshelfAppServer.class);
 	
 	public static void main(String[] args) {
+		logger.trace("We've just greeted the user!");
+		logger.debug("We've just greeted the user!");
+		logger.info("We've just greeted the user!");
+		logger.warn("We've just greeted the user!");
+		logger.error("We've just greeted the user!");
+		logger.fatal("We've just greeted the user!");
 		SpringApplication.run(BookshelfAppServer.class, args);
 	}
 	
